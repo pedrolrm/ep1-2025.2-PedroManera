@@ -19,19 +19,19 @@ public class Paciente extends Pessoa{
 
     //getters
     public String getCpf() {
-        return this.cpf;
+        return cpf;
     }
 
     public int getIdade() {
-        return this.idade;
+        return idade;
     }
 
     public ArrayList<String> getHistoricoConsultas() {
-        return this.historicoConsultas;
+        return historicoConsultas;
     }
 
     public ArrayList<String> getHistoricoInternacoes() {
-        return this.historicoInternacoes;
+        return historicoInternacoes;
     }
 
     //setters

@@ -1,12 +1,13 @@
 package entidades;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Medico extends Pessoa{
     private String crm;
     private String especialidade;
     private double custoConsulta;
-    private ArrayList<Integer> horariosDisponiveis;
+    private ArrayList<LocalDateTime> horariosDisponiveis;
     private ArrayList<String> listaEspecialidades;
 
     public Medico(String nome, String crm, String especialidade, double custoConsulta){
@@ -20,18 +21,18 @@ public class Medico extends Pessoa{
 
     //getters
     public String getCrm(){
-        return this.crm;
+        return crm;
     }
 
     public String getEspecialidade(){
-        return this.especialidade;
+        return especialidade;
     }
 
-    public String getCustoConsulta(){
-        return "O custo da consulta com o médico " + getNome() + "é " + custoConsulta;
+    public Double getCustoConsulta(){
+        return custoConsulta;
     }
 
-    public ArrayList<Integer> getHorariosDisponiveis(){
+    public ArrayList<LocalDateTime> getHorariosDisponiveis(){
         return horariosDisponiveis;
     }
 
