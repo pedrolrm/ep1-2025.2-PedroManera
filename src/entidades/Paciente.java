@@ -2,8 +2,7 @@ package entidades;
 
 import java.util.ArrayList;
 
-public class Paciente {
-    private String nome;
+public class Paciente extends Pessoa{
     private String cpf;
     private int idade;
     private ArrayList<String> historicoConsultas;
@@ -11,7 +10,7 @@ public class Paciente {
     
     //construtor
     public Paciente(String nome, String cpf, int idade) {
-        this.nome = nome;
+        super(nome);
         this.cpf = cpf;
         this.idade = idade;
         this.historicoConsultas = new ArrayList<>();
@@ -19,10 +18,6 @@ public class Paciente {
     }
 
     //getters
-    public String getNome() {
-        return this.nome;
-    }
-
     public String getCpf() {
         return this.cpf;
     }
@@ -40,10 +35,6 @@ public class Paciente {
     }
 
     //setters
-    public void setNome(String novoNome){
-        this.nome = novoNome;
-    }
-
     public void setIdade(int novaIdade){
         if (novaIdade > 0) {
             this.idade = novaIdade;
@@ -63,6 +54,6 @@ public class Paciente {
     //formatando print do paciente
     @Override
     public String toString() {
-        return "Paciente [Nome=" + this.nome + ", CPF=" + this.cpf + ", Idade=" + this.idade + "]";
+        return "Paciente [Nome=" + getNome() + ", CPF=" + this.cpf + ", Idade=" + this.idade + "]";
     }
 }

@@ -2,8 +2,7 @@ package entidades;
 
 import java.util.ArrayList;
 
-public class Medico {
-    private String nome;
+public class Medico extends Pessoa{
     private String crm;
     private String especialidade;
     private double custoConsulta;
@@ -11,19 +10,15 @@ public class Medico {
     private ArrayList<String> listaEspecialidades;
 
     public Medico(String nome, String crm, String especialidade, double custoConsulta){
-        this.nome = nome;
+        super(nome);
         this.crm = crm;
         this.especialidade = especialidade;
         this.custoConsulta = custoConsulta;
         this.horariosDisponiveis = new ArrayList<>();
         this.listaEspecialidades = new ArrayList<>();
     }
-    
-    //getters
-    public String getNome(){
-        return this.nome;
-    }
 
+    //getters
     public String getCrm(){
         return this.crm;
     }
@@ -33,7 +28,7 @@ public class Medico {
     }
 
     public String getCustoConsulta(){
-        return "O custo da consulta com o médico " + this.nome + "é " + custoConsulta;
+        return "O custo da consulta com o médico " + getNome() + "é " + custoConsulta;
     }
 
     public ArrayList<Integer> getHorariosDisponiveis(){
@@ -41,10 +36,6 @@ public class Medico {
     }
 
     //setters
-    public void setNome(String novoNome){
-        this.nome = novoNome;
-    }
-
     public void setCrm (String novoCrm){
         this.crm = novoCrm;
     }
@@ -57,6 +48,6 @@ public class Medico {
 
     @Override
     public String toString() {
-        return "Médico [Nome=" + this.nome + ", CRM=" + this.crm + ", Especialidade=" + this.especialidade + " custo da consulta: " + custoConsulta + "]";
+        return "Médico [Nome=" + getNome() + ", CRM=" + this.crm + ", Especialidade=" + this.especialidade + " custo da consulta: " + custoConsulta + "]";
     }
 }
