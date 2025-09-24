@@ -8,12 +8,12 @@ public class Consulta {
     private String local;
     private StatusConsulta status;
 
-    public Consulta(Paciente paciente, Medico medico, LocalDateTime horario, String local){
+    public Consulta(Paciente paciente, Medico medico, LocalDateTime horario, String local, StatusConsulta status){
         this.paciente = paciente;
         this.medico = medico;
         this.horario = horario;
         this.local = local;
-        this.status = StatusConsulta.AGENDADA;
+        this.status = status;
     }
 
     public Paciente getPaciente(){
