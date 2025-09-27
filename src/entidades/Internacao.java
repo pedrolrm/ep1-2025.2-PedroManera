@@ -1,6 +1,7 @@
 package entidades;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Internacao {
     private Paciente paciente;
@@ -31,7 +32,6 @@ public class Internacao {
             this.custo = diasPrevistos * valorDiaria;
         }
 
-        paciente.adicionarInternacaoAoHistorico(this.toString());
     }
 
     // Getters
@@ -71,14 +71,15 @@ public class Internacao {
 
     @Override
     public String toString() {
-        return "Internacao {" +
-               "Paciente=" + paciente.getNome() +
-               ", MedicoResponsavel=" + medicoResponsavel.getNome() +
-               ", Quarto=" + quarto.getNumero() +
-               ", DataEntrada=" + dataEntrada +
-               ", DataSaida=" + dataSaida +
-               ", Custo=" + custo +
-               ", Cancelada=" + cancelada +
-               '}';
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return String.format("Internação [Paciente: %s, Médico: %s, Quarto: %s, Entrada: %s, Saída: %s, Custo: R$ %.2f, Cancelada: %b]",
+            this.paciente.getNome(),
+            this.medicoResponsavel.getNome(),
+            this.quarto.getNumero(),
+            this.dataEntrada.format(formatter),
+            this.dataSaida.format(formatter),
+            this.custo,
+            this.cancelada);
     }
+
 }

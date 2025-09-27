@@ -34,13 +34,11 @@ public class PlanoSaude{
         return menosQueUmaSemana;
     }
 
-      @Override
+    @Override
     public String toString() {
-        return "PlanoSaude {" +
-                "nome='" + fornecedor + '\'' +
-                ", descontos=" + descontosPorEspecialidade +
-                ", internacaoGratisMenosDeUmaSemana=" + menosQueUmaSemana +
-                '}';
+        return String.format("Plano de Saúde [Fornecedor: %s, Cobertura Internação < 7 dias: %b]",
+            this.fornecedor,
+            this.menosQueUmaSemana);
     }
 
 }

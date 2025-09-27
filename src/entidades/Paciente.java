@@ -51,9 +51,12 @@ public class Paciente extends Pessoa{
         this.historicoInternacoes.add(registroInternacao);
     }
 
-    //formatando print do paciente
     @Override
     public String toString() {
-        return "Paciente [Nome=" + getNome() + ", CPF=" + this.cpf + ", Idade=" + this.idade + "]";
+        return String.format("Paciente [Nome: %s, CPF: %s, Idade: %d]",
+            this.getNome(),
+            this.cpf,
+            this.idade);
     }
+    
 }

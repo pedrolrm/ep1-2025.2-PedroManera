@@ -23,9 +23,11 @@ public class PacienteEspecial extends Paciente {
 
     @Override
     public String toString() {
-        return super.toString() +
-               "\nPacienteEspecial {" +
-               "planoSaude=" + planoSaude +
-               '}';
+        return String.format("Paciente Especial [Nome: %s, CPF: %s, Idade: %d, Plano: %s]",
+            this.getNome(),
+            this.getCpf(),
+            this.getIdade(),
+            this.planoSaude.getFornecedor());
     }
+    
 }

@@ -1,5 +1,6 @@
 package entidades;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Consulta {
     private Paciente paciente;
@@ -40,15 +41,19 @@ public class Consulta {
         this.status = novoStatus;
     }
 
-     @Override
+    public void setLocal (String novoLocal){
+        this.local = novoLocal;
+    }
+
+    @Override
     public String toString() {
-        return "Consulta {" +
-                "\n  Paciente: " + paciente +
-                ",\n  Medico: " + medico +
-                ",\n  Data/Hora: " + horario +
-                ",\n  Local: '" + local + '\'' +
-                ",\n  Status: " + getStatus() +
-                "\n}";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        return String.format("Consulta [Paciente: %s, Médico: %s, Data/Hora: %s, Local: %s, Status: %s]",
+            this.paciente.getNome(),
+            this.medico.getNome(),
+            this.horario.format(formatter),
+            this.local,
+            this.status);
     }
     
 }
