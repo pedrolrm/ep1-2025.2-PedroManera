@@ -26,6 +26,10 @@ public class PlanoSaude{
         return descontosPorEspecialidade.getOrDefault(especialidade, 0.0);
     }
 
+    public Map<String, Double> getDescontosPorEspecialidade() {
+        return this.descontosPorEspecialidade;
+    }
+
     public void setFornecedor(String novoFornecedor){
         this.fornecedor = novoFornecedor;
     }
