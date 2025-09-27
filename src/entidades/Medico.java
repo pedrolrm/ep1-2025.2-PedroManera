@@ -5,18 +5,16 @@ import java.util.ArrayList;
 
 public class Medico extends Pessoa{
     private String crm;
-    private String especialidade;
+    private Especialidade especialidade;
     private double custoConsulta;
     private ArrayList<LocalDateTime> horariosDisponiveis;
-    private ArrayList<String> listaEspecialidades;
 
-    public Medico(String nome, String crm, String especialidade, double custoConsulta){
+    public Medico(String nome, String crm, Especialidade especialidade, double custoConsulta){
         super(nome);
         this.crm = crm;
         this.especialidade = especialidade;
         this.custoConsulta = custoConsulta;
         this.horariosDisponiveis = new ArrayList<>();
-        this.listaEspecialidades = new ArrayList<>();
     }
 
     //getters
@@ -24,7 +22,7 @@ public class Medico extends Pessoa{
         return crm;
     }
 
-    public String getEspecialidade(){
+    public Especialidade getEspecialidade(){
         return especialidade;
     }
 
@@ -41,10 +39,8 @@ public class Medico extends Pessoa{
         this.crm = novoCrm;
     }
 
-    public void setEspecialidade(String novaEspecialidade){
-        if (listaEspecialidades.contains(novaEspecialidade)){
-            this.especialidade = novaEspecialidade;
-        }
+    public void setEspecialidade(Especialidade novaEspecialidade){
+        this.especialidade = novaEspecialidade;
     }
 
     @Override
