@@ -8,6 +8,8 @@ public class Consulta {
     private LocalDateTime horario;
     private String local;
     private StatusConsulta status;
+    private String diagnostico;
+    private String prescricao;
 
     public Consulta(Paciente paciente, Medico medico, LocalDateTime horario, String local, StatusConsulta status){
         this.paciente = paciente;
@@ -37,12 +39,28 @@ public class Consulta {
         return status;
     }
 
+    public String getDiagnostico() {
+        return diagnostico;
+    }
+
+    public String getPrescricao() {
+        return prescricao;
+    }
+
     public void setStatus(StatusConsulta novoStatus){
         this.status = novoStatus;
     }
 
     public void setLocal (String novoLocal){
         this.local = novoLocal;
+    }
+
+    public void setDiagnostico(String diagnostico) {
+        this.diagnostico = diagnostico;
+    }   
+
+    public void setPrescricao(String prescricao) {
+        this.prescricao = prescricao;
     }
 
     @Override
