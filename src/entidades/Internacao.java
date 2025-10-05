@@ -12,14 +12,16 @@ public class Internacao {
     private double custo;
     private boolean cancelada;
 
-    public Internacao(Paciente paciente, Medico medicoResponsavel, Quarto quarto, LocalDate dataEntrada, int diasPrevistos, double valorDiaria) {
+    public Internacao(Paciente paciente, Medico medicoResponsavel, Quarto quarto, LocalDate dataEntrada, int diasPrevistos, double valorDiaria, boolean cancelada) {
         this.paciente = paciente;
         this.medicoResponsavel = medicoResponsavel;
         this.quarto = quarto;
         this.dataEntrada = dataEntrada;
         this.dataSaida = dataEntrada.plusDays(diasPrevistos);
-        this.cancelada = false;
-        this.quarto.setOcupado(true);
+        this.cancelada = cancelada;
+        if (!this.cancelada) {
+            this.quarto.setOcupado(true);
+        }
 
         if (paciente instanceof PacienteEspecial) {
             PacienteEspecial especial = (PacienteEspecial) paciente;

@@ -8,7 +8,7 @@ public class InternacaoService {
 
     public static Internacao agendarInternacao(Paciente paciente, Medico medico, Quarto quarto, LocalDate dataEntrada, int dias, double custo, List<Internacao> todasInternacoes) {
         if (HospitalService.isQuartoDisponivel(quarto, dataEntrada, todasInternacoes)) {
-            Internacao novaInternacao = new Internacao(paciente, medico, quarto, dataEntrada, dias, custo);
+            Internacao novaInternacao = new Internacao(paciente, medico, quarto, dataEntrada, dias, custo, false);
             todasInternacoes.add(novaInternacao);
             HospitalService.registrarInternacao(novaInternacao);
             return novaInternacao;

@@ -71,7 +71,8 @@ public class ArquivoService {
                 internacao.getQuarto().getNumero(),
                 internacao.getDataEntrada().toString(),
                 internacao.getDataSaida().toString(),
-                String.valueOf(internacao.getCusto())));
+                String.valueOf(internacao.getCusto()),
+                Boolean.toString(internacao.isCancelada())));
     }
 
     // carregamento
@@ -156,6 +157,7 @@ public class ArquivoService {
             LocalDate dataEntrada = LocalDate.parse(dados[3]);
             LocalDate dataSaida = LocalDate.parse(dados[4]);
             double custo = Double.parseDouble(dados[5]);
+            boolean cancelada = Boolean.parseBoolean(dados[6]);
 
             Paciente paciente = pacientes.stream().filter(p -> p.getCpf().equals(cpfPaciente)).findFirst().orElse(null);
             Medico medico = medicos.stream().filter(m -> m.getCrm().equals(crmMedico)).findFirst().orElse(null);
@@ -163,7 +165,7 @@ public class ArquivoService {
 
             if (paciente != null && medico != null && quarto != null) {
                 int dias = dataEntrada.until(dataSaida).getDays();
-                return new Internacao(paciente, medico, quarto, dataEntrada, dias, custo / dias);
+                return new Internacao(paciente, medico, quarto, dataEntrada, dias, custo / dias, cancelada);
             }
             return null;
         });
