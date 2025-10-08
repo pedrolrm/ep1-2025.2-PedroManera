@@ -78,9 +78,17 @@ public class RelatorioService {
         
         System.out.println("\n--- PACIENTES INTERNADOS ATUALMENTE ---");
         ativas.forEach(i -> {
-            long diasInternado = ChronoUnit.DAYS.between(i.getDataEntrada(), LocalDate.now());
-            System.out.printf("Paciente: %s, Quarto: %s, Médico: %s, Dias Internado: %d\n",
-                i.getPaciente().getNome(), i.getQuarto().getNumero(), i.getMedicoResponsavel().getNome(), diasInternado);
+            if (ChronoUnit.DAYS.between(i.getDataEntrada(), LocalDate.now()) <= 0){
+                long diasInternado = 0;
+                System.out.printf("Paciente: %s, Quarto: %s, Médico: %s, Dias Internado: %d\n",
+                    i.getPaciente().getNome(), i.getQuarto().getNumero(), i.getMedicoResponsavel().getNome(), diasInternado);
+                
+            }
+            else{
+                long diasInternado = ChronoUnit.DAYS.between(i.getDataEntrada(), LocalDate.now());
+                System.out.printf("Paciente: %s, Quarto: %s, Médico: %s, Dias Internado: %d\n",
+                    i.getPaciente().getNome(), i.getQuarto().getNumero(), i.getMedicoResponsavel().getNome(), diasInternado);
+            }
         });
     }
 
